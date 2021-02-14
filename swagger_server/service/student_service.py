@@ -54,12 +54,12 @@ def delete_student(student_id):
     return student_id, 200
 
 
-def get_student_by_last_name(student_last_name):
+def get_student_by_last_name(last_name):
     User = Query()
-    student = db.get(User.last_name == student_last_name)
+    student = db.get(User.last_name == last_name)
 
     if not student:
-        return "Not Found", 405
+        return "Not Found not shit", 405
 
     student = Student.from_dict(student)
     return student, 200
