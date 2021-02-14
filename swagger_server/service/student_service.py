@@ -16,7 +16,7 @@ student_db = TinyDB(db_file_path)
 
 
 def add_student(student):
-    if student.first_name == "" or student.last_name == "":
+    if student.first_name is None or student.last_name is None:
         return 'not allowed', 405
 
     queries = []
@@ -44,6 +44,7 @@ def get_student_by_id(student_id, subject):
         if subject not in student.grades:
             return "Not Found", 404
         else:
+            student = Student.from_dict(student)
             return student, 200
 
 
