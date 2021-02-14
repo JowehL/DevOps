@@ -5,7 +5,8 @@ info:
   version: "1.0.0"
   title: "Swagger tutorial"
 host: "virtserver.swaggerhub.com"
-basePath: "/JoeyL/Test/1.0.0"
+basePath: "/service-api"
+# http://localhost:8888/service-api/ui/ for 'docker run -t -i -p 8888:8080 student'
 schemes:
 - "https"
 - "http"
