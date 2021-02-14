@@ -4,7 +4,7 @@ services:
 # ref: https://docs.travis-ci.com/user/languages/python
 language: python
 python:
-  - "3.9"
+  - "3.6"
 
 before_install:
   - docker version
@@ -34,8 +34,8 @@ script:
 
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - docker tag DevOps/swagger_server DevOps/swagger_server
-  - docker push DevOps/swagger_server
+  - docker tag devops/swagger_server devops/swagger_server
+  - docker push devops/swagger_server
 
 env:
   global:
