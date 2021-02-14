@@ -34,6 +34,7 @@ script:
 - node_modules/.bin/newman run tests/postman_collection.json -e tests/postman_environment.json
 
 after_success:
+  - docker build -t joeyl/devops .
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - docker tag swagger_server joeyl/devops:swagger_server
   - docker push joeyl/devops:swagger_server
