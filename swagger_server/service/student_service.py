@@ -59,7 +59,7 @@ def get_student_by_last_name(last_name):
     student = db.get(User.last_name == last_name)
 
     if not student:
-        return "Not Found not shit", 405
+        return "Not Found not shit", 404
 
     student = Student.from_dict(student)
     return student, 200
