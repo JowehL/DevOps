@@ -27,21 +27,22 @@ def add_student(student):
 
     doc_id = student_db.insert(student.to_dict())
     student.student_id = doc_id
-    return student.student_id
+    return student.student_id, 200
 
 
 def get_student_by_id(student_id, subject):
     student = student_db.get(doc_id=int(student_id))
     if not student:
-        return student
+        return "Not Found", 404
     student = Student.from_dict(student)
-    if not subject:
-        return student
+    if not student:
+        return "Not Found", 404
 
+    return student, 200
 
 def delete_student(student_id):
     student = student_db.get(doc_id=int(student_id))
     if not student:
-        return student
+        return "Not Found", 404
     student_db.remove(doc_ids=[int(student_id)])
-    return student_id
+    return student_id, 200
