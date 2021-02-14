@@ -17,7 +17,7 @@ student_db = TinyDB(db_file_path)
 
 def add_student(student):
     if student.first_name == "" or student.last_name == "":
-        return 'not allowed', 409
+        return 'not allowed', 405
 
     queries = []
     query = Query()
