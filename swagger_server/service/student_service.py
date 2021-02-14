@@ -38,11 +38,14 @@ def get_student_by_id(student_id, subject):
     if not student:
         return "Not Found", 404
 
-    if subject is not None:
+    if subject is None:
+        return student, 200
+    else:
         if subject not in student.grades:
             return "Not Found", 404
+        else:
+            return student, 200
 
-    return student, 200
 
 def delete_student(student_id):
     student = student_db.get(doc_id=int(student_id))
