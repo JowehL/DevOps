@@ -35,8 +35,8 @@ script:
 
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - docker tag devops/swagger_server devops/swagger_server
-  - docker push devops/swagger_server
+  - docker tag swagger_server joeyl/devops:swagger_server
+  - docker push joeyl/devops:swagger_server
 
 env:
   global:
