@@ -38,11 +38,9 @@ def get_student_by_id(student_id, subject):
     if not student:
         return "Not Found", 404
 
-    if subject:
+    if subject is not None:
         if subject not in student.grades:
             return "Not Found", 404
-
-    # student = Student.from_dict(student)
 
     return student, 200
 
