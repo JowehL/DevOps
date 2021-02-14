@@ -55,6 +55,10 @@ def delete_student(student_id):
 
 
 def get_student_by_last_name(last_name):
+    student = student_db.get(doc_id=int(1))
+    return student, 200
+
+
     User = Query()
     student = db.get(User.last_name == last_name)
 
