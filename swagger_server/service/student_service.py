@@ -38,9 +38,10 @@ def get_student_by_id(student_id, subject):
     if not student:
         return "Not Found", 404
 
-    student = get_student_by_id(student_id, subject)
-    if not student:
-        return "Not Found", 404
+    if subject:
+        student = get_student_by_id(student_id, subject)
+        if not student:
+            return "Not Found", 404
 
     return student, 200
 
