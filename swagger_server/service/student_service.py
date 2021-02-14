@@ -55,7 +55,12 @@ def delete_student(student_id):
 
 
 def get_student_by_last_name(student_last_name):
-    student = student_db.get(doc_last_name=str(student_last_name))
+    queries = []
+    query = Query()
+    queries.append(query.last_name == student_last_name)
+    query = reduce(lambda a, b: a & b, queries)
+    student = student_db.search(query)
+
     if not student:
         return "Not Found", 404
 
